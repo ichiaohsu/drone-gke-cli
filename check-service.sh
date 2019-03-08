@@ -21,8 +21,7 @@ if [ ! -z ${PLUGIN_ZONE} ]; then
 fi
 
 cat $CREDENTIAL_PATH
-
-SERVICE_NAME=${DRONE_REPO}-${DRONE_REPO_BRANCH}
+SERVICE_NAME=${DRONE_REPO_NAME}-${DRONE_BRANCH}
 echo "service name:${SERVICE_NAME}"
 echo "namespace:${PLUGIN_NAMESPACE}"
 echo "zone:${GCP_ZONE}"
