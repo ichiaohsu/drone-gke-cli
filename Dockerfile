@@ -5,5 +5,5 @@ RUN apk add --update curl ca-certificates bash \
   && chmod +x /usr/local/bin/kubectl
 
 COPY ./*.sh /bin/
-ENTRYPOINT ["/bin/bash"]
-CMD ["/bin/check-service.sh"]
+# ENTRYPOINT ["/bin/bash"]
+CMD ["/bin/bash", "check-service.sh"]
