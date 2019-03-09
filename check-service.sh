@@ -40,4 +40,4 @@ done
 
 echo 'End point ready:' && echo $EXTERNAL_IP
 
-echo "http://$EXTERNAL_IP:80" > .address
+echo http://$EXTERNAL_IP:80 > .address
