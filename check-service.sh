@@ -28,7 +28,7 @@ echo "zone:${GCP_ZONE}"
 echo "cluster:${KUBERNETES_CLUSTER}"
 
 gcloud auth activate-service-account --key-file $CREDENTIAL_PATH
-echo "gcloud container clusters --zone ${GCP_ZONE} get-credentials ${KUBERNETES_CLUSTER}"
+# echo "gcloud container clusters --zone ${GCP_ZONE} get-credentials ${KUBERNETES_CLUSTER}"
 gcloud container clusters --zone ${GCP_ZONE} get-credentials ${KUBERNETES_CLUSTER}
 
 EXTERNAL_IP=""
@@ -39,3 +39,5 @@ while [ -z $EXTERNAL_IP ]; do
 done
 
 echo 'End point ready:' && echo $EXTERNAL_IP
+
+echo "http://$EXTERNAL_IP:80" > .address
