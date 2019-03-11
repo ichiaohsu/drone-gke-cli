@@ -9,10 +9,10 @@ if [ ! -z ${PLUGIN_CLUSTER} ]; then
 fi
 
 CREDENTIAL_PATH=./gcloud.json
-# if [ ! -z ${GOOGLE_CREDENTIALS} ]; then
-echo "$GOOGLE_CREDENTIALS" > $CREDENTIAL_PATH
+if [ ! -z ${GOOGLE_CREDENTIALS} ]; then
+  echo "$GOOGLE_CREDENTIALS" > $CREDENTIAL_PATH
   # echo "$GOOGLE_CREDENTIALS" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' > /tmp/gcloud.json
-# fi
+fi
 
 PLUGING_ZONE=asia-east1-a
 
@@ -20,7 +20,6 @@ if [ ! -z ${PLUGIN_ZONE} ]; then
   GCP_ZONE=$PLUGIN_ZONE
 fi
 
-cat $CREDENTIAL_PATH
 SERVICE_NAME=${DRONE_REPO_NAME}-${DRONE_BRANCH}
 echo "service name:${SERVICE_NAME}"
 echo "namespace:${PLUGIN_NAMESPACE}"
