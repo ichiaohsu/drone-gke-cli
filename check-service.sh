@@ -17,7 +17,8 @@ if [ ! -z ${PLUGIN_ZONE} ]; then
   GCP_ZONE=$PLUGIN_ZONE
 fi
 
-SERVICE_NAME=${DRONE_REPO_NAME}-${DRONE_BRANCH}
+# Remove possible dot in service name
+SERVICE_NAME=$(echo ${DRONE_REPO_NAME}-${DRONE_BRANCH} | sed -e "s/\.//g")
 
 gcloud auth activate-service-account --key-file $CREDENTIAL_PATH
 gcloud container clusters --zone ${GCP_ZONE} get-credentials ${KUBERNETES_CLUSTER}
